@@ -1,0 +1,31 @@
+{
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "express-validator": "^6.12.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^6.0.8"
+    },
+    "name": "aayworks_tracker",
+    "description": "It is an attendance tracking app, where employers see their working hours and their routine of working days",
+    "version": "1.0.0",
+    "main": "index.js",
+    "devDependencies": {
+        "nodemon": "^2.0.13"
+    },
+    "scripts": {
+        "server": "nodemon index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/deepaksharma9dev/AayWorks_Tracker.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/deepaksharma9dev/AayWorks_Tracker/issues"
+    },
+    "homepage": "https://github.com/deepaksharma9dev/AayWorks_Tracker#readme"
+}
