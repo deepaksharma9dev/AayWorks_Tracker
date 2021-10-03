@@ -1,0 +1,131 @@
+/*---Landing page---*/
+
+#Landing_sec {
+    background-color: #161D6F;
+    height: 100vh;
+    width: 100vw;
+}
+
+.banner_sec {
+    width: 137px;
+    height: 144px;
+}
+
+.brand_name_sec {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-family: Roboto-Bold;
+}
+
+.slogan_sec {
+    color: #FFFFFF;
+    font-size: 18px;
+    font-family: Roboto-Regular;
+}
+
+.welcome_page_sec {
+    background-color: #161D6F;
+    height: 100vh;
+    width: 100vw;
+}
+
+.path_sec {
+    background-image: url('./asserts/Icons/Path.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30vh;
+}
+
+.clock_in_button_sec,
+.clock_out_button_sec,
+.tracker_button_sec {
+    height: 42px;
+}
+
+
+/*-----clock-in-----*/
+
+.clock-in-card-sec {
+    background-color: #22CEB6;
+    width: 32rem;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    height: 25vh;
+}
+
+.company-name,
+.shop-num-sec,
+.address-sec,
+.state-sec {
+    font-size: 22px;
+    color: #161D6F;
+}
+
+.door_in_icon {
+    width: 100px;
+}
+
+.location_card_sec {
+    width: 288px;
+    border-radius: 2rem;
+    background-color: #FF6868;
+}
+
+.clock-in-button {
+    border-radius: 1rem;
+    width: 10rem;
+    background-color: #FFFFFF;
+    color: #161D6F;
+}
+
+.clock-in-container-sec {
+    height: 80vh;
+}
+
+.clockOutlocation_card_sec {
+    width: 288px;
+    border-radius: 2rem;
+    background-color: #6881FF;
+}
+
+
+/*----tracker----*/
+
+.tracker-card-sec {
+    background-color: #FFC14F;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    height: 20vh;
+}
+
+.color-icon {
+    margin-right: 3rem;
+}
+
+.left-arrow {
+    padding-left: 2rem;
+}
+
+.right-arrow {
+    padding-right: 2rem;
+}
+
+.check-button {
+    background-color: #161D6F;
+    color: #FFFFFF;
+    border-radius: 2rem;
+}
+
+
+/*------result sec-----*/
+
+.result_sec {
+    box-shadow: 0 3px 7px #888888;
+    border-radius: 1.5rem;
+    background-color: #FFFFFF;
+}
+
+.tracker_container {
+    background-color: #Fdfcfa;
+    height: 100vh;
+}
