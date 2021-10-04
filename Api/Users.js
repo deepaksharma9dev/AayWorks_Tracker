@@ -20,13 +20,17 @@ Router
 //access  Public
 Router
     .put('/user/clockout', [
-        check('userName', "userName is required").not().isEmpty(),
+        check('userName', "userName is required").not().isEmpty()
     ], checkOut.clockOut);
 
-//@route  GET /api/users/user/tracker
+//@route  POST /api/users/user/tracker
 //desc    To tracker user's working hours
 //access  Public
+
 Router
-    .get('/user/tracker', Tracker);
+    .post('/user/tracker', [
+        check('userName', "userName is required").not().isEmpty(),
+        check('currentDate', 'currentDate is required').not().isEmpty(),
+    ], Tracker);
 
 module.exports = Router;

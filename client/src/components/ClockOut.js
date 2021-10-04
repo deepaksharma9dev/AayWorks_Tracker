@@ -4,9 +4,14 @@ import LeftArrow from "../asserts/Icons/ArrowLeft.png";
 import DownArrow from "../asserts/Icons/DownArrow.png";
 import LocationIcon from "../asserts/Icons/Location-icon.png";
 import {CheckedOut} from '../actions/Clockout';
+import { useHistory } from "react-router-dom";
 import {connect} from 'react-redux';
 const ClockOut = ({CheckedOut}) => {
+
   const [currentTime, setCurrentTime] = useState(new Date());
+   const history = useHistory();
+
+
   const weekDays = [
     "Sunday",
     "Monday",
@@ -96,9 +101,12 @@ const ClockOut = ({CheckedOut}) => {
                 </div>
                 <div
                   className="text-center clock-in-button mt-5 border py-2 ml-5"
-                  onClick={() => EnterTheTime()}
+                  onClick={() =>{
+                     EnterTheTime()
+                     history.push("/welcome-page")
+                    }}
                 >
-                  Clock in
+                  Clock Out
                 </div>
               </div>
             </div>

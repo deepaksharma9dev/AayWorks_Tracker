@@ -7,8 +7,8 @@ import {Landing} from './components/Landing';
 import {WelcomePage} from './components/WelcomePage';
 import ClockIn from './components/ClockIn';
 import ClockOut from './components/ClockOut';
-import {Calender} from './components/Calender';
-import {Tracker} from './components/Tracker';
+import Calender from './components/Calender';
+import Tracker from './components/Tracker';
 
 function App() {
   return (

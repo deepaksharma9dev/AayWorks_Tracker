@@ -1,4 +1,5 @@
 import React, { Fragment, useState ,useEffect} from "react";
+import {useHistory} from 'react-router-dom';
 import {connect} from 'react-redux';
 import CheckIn from '../asserts/Icons/enter@1X.png';
 import LeftArrow from '../asserts/Icons/ArrowLeft.png';
@@ -7,7 +8,11 @@ import LocationIcon from '../asserts/Icons/Location-icon.png';
 import {Checked} from '../actions/ClockIn';
 
 const ClockIn = ({ Checked }) => {
+
   const [currentTime, setCurrentTime] = useState(new Date());
+  const history = useHistory();
+
+
   const weekDays = [
     "Sunday",
     "Monday",
@@ -17,6 +22,8 @@ const ClockIn = ({ Checked }) => {
     "Friday",
     "Saturday",
   ];
+
+
   const Months = [
     "Jan",
     "Feb",
@@ -32,9 +39,13 @@ const ClockIn = ({ Checked }) => {
     "Dec",
   ];
 
+
+
   useEffect(() => {
     setCurrentTime(new Date());
   }, []);
+
+
 
   const Clockin =
     currentTime.getHours() +
@@ -43,9 +54,13 @@ const ClockIn = ({ Checked }) => {
     ":" +
     currentTime.getSeconds();
 
+
   const EnterTheTime = (Clockin) => {
     Checked(Clockin);
   };
+
+
+  
 
   return (
     <Fragment>
@@ -97,7 +112,10 @@ const ClockIn = ({ Checked }) => {
                 </div>
                 <div
                   className="text-center clock-in-button mt-5 border py-2 ml-5"
-                  onClick={() => EnterTheTime(Clockin)}
+                  onClick={() => {
+                    EnterTheTime(Clockin)
+                    history.push("/welcome-page");
+                  }}
                 >
                   Clock in
                 </div>
