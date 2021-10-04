@@ -13,19 +13,19 @@ export const Tracker = () => {
                 <div className="card-body">
                   <div className="d-flex">
                     <div className="left-arrow mr-3">
-                      <img src={LeftArrow} />
+                      <img src={LeftArrow} alt="" />
                     </div>
                     <div className="door-in-text card-title"> Track</div>
                   </div>
                   <div className="d-flex justify-content-around">
                     <div className="door-in-sec w-30 align-self-center">
-                      <img className="door_in_icon" src={CalendarIcon} />
+                      <img className="door_in_icon" src={CalendarIcon} alt="" />
                     </div>
                     <div className="company-about-sec w-50">
                       <div className="company-name-sec d-flex align-items-center justify-content-between">
                         <div className="company-name">Mohan Interprieses</div>
                         <div className="right-arrow-sec">
-                          <img src={DownArrow} />
+                          <img src={DownArrow} alt="" />
                         </div>
                       </div>
                     </div>
@@ -38,11 +38,11 @@ export const Tracker = () => {
             <div className="col-12">
               <div className="row justify-content-between text-center">
                 <div className="col-3">
-                  <img src={LeftArrow} />
+                  <img src={LeftArrow} alt="" />
                 </div>
                 <div className="col-3">Date</div>
                 <div className="col-3">
-                  <img src={DownArrow} />
+                  <img src={DownArrow} alt="" />
                 </div>
               </div>
             </div>

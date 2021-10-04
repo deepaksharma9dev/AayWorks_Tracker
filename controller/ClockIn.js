@@ -3,21 +3,13 @@ const { userModel } = require('../Db/Models/User');
 
 const ClockIn = async(req, res) => {
 
+    const { userName, ClockIn } = req.body;
 
-
-    // const { username, ClockIn } = req.body;
-
-    // const errors = validationResult(request);
-    // if (!errors.isEmpty()) {
-    //     return {
-    //         status: 400,
-    //         errors: errors.array()
-    //     };
-    // }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ msg: errors.array() });
+    }
     try {
-        const userName = "deepak123";
-        const today = new Date();
-        const ClockIn = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
         const User = new userModel({
             userName: userName,

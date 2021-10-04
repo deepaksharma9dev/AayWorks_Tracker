@@ -7,7 +7,6 @@ const Tracker = async(req, res) => {
         const user = await userModel.findOne({
             userName: userName
         });
-
         const old = new Date(user.createdAt);
         const today = new Date();
         const OldDate = old.getFullYear() + '-' + (old.getMonth() + 1) + '-' + old.getDate();

@@ -5,10 +5,15 @@ const { Tracker } = require('../controller/Tracker');
 const { check } = require('express-validator');
 
 Router
-    .post('/user/clockin', ClockIn);
+    .post('/user/clockin', [
+        check('userName', "userName is required").not().isEmpty(),
+        check('ClockIn', "clock in is required").not().isEmpty()
+    ], ClockIn);
 
 Router
-    .put('/user/clockout', checkOut.clockOut);
+    .put('/user/clockout', [
+        check('userName', "userName is required").not().isEmpty(),
+    ], checkOut.clockOut);
 
 
 Router

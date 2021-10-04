@@ -1,17 +1,23 @@
 const { userModel } = require('../Db/Models/User');
+const { validationResult } = require('express-validator');
 
 
 
 const clockOut = async(req, res) => {
-
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ msg: errors.array() });
+    }
     try {
+        const { userName } = req.body;
 
-        const userName = "deepak123";
         const today = new Date();
-        const ClockOut = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
+        const ClockOut = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        console.log(userName);
 
         let user = await userModel.findOne({ userName: userName });
+        console.log(user);
 
         const CheckInTime = user.ClockIn.split(":");
         const CheckOut = ClockOut.split(":");
@@ -50,6 +56,7 @@ const clockOut = async(req, res) => {
         return res.status(200).json({ msg: "Clock in has created" });
 
     } catch (err) {
+        console.log(err);
         return res.status(400).json({ errors: err.message });
     }
 

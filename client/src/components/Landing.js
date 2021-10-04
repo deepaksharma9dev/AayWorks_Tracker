@@ -1,10 +1,18 @@
 import React,{Fragment} from 'react'
+import {useHistory} from 'react-router-dom';
 import AayWorks from '../asserts/Icons/AayWorks.png'
 export const Landing = () => {
+
+
+      let history = useHistory();
+      setTimeout(() => {
+        history.push("/welcome-page")
+      },5000)
+
     return (
       <Fragment>
         <div
-          className="container-fluid text-center d-flex flex-column justify-content-center"
+          className="container text-center d-flex flex-column justify-content-center"
           id="Landing_sec"
         >
           <div className="landing_icon_sec">
