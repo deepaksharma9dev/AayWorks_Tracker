@@ -13,47 +13,56 @@ const clockOut = async(req, res) => {
 
         const today = new Date();
 
-        const ClockOut = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        console.log(userName);
+        let user = await userModel.find({ userName: userName });
 
-        let user = await userModel.findOne({ userName: userName });
-        console.log(user);
+        user.forEach(async(user) => {
+            let OldDate = new Date(user.createdAt);
+            let currentDate = new Date();
 
-        const CheckInTime = user.ClockIn.split(":");
-        const CheckOut = ClockOut.split(":");
+            OldDate = OldDate.getFullYear() + "/" + (OldDate.getMonth() + 1) + "/" + OldDate.getDate();
+            currentDate = currentDate.getFullYear() + "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getDate();
+            if (OldDate === currentDate) {
+                const ClockOut = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                const CheckInTime = user.ClockIn.split(":");
+                const CheckOut = ClockOut.split(":");
 
-        const totalHours = [];
-        let index = 0;
-        let greater_one;
-        let lower_one;
+                const totalHours = [];
+                let index = 0;
+                let greater_one;
+                let lower_one;
 
-        while (index < CheckInTime.length && index < CheckOut.length) {
-            if (Number(CheckInTime[index]) > Number(CheckOut[index])) {
-                greater_one = Number(CheckInTime[index]);
-                lower_one = Number(CheckOut[index]);
-                totalHours.push(String(greater_one - lower_one));
-                totalHours.push(":");
-            } else {
-                greater_one = Number(CheckOut[index]);
-                lower_one = Number(CheckInTime[index]);
-                totalHours.push(String(greater_one - lower_one));
-                totalHours.push(":");
+                while (index < CheckInTime.length && index < CheckOut.length) {
+                    if (Number(CheckInTime[index]) > Number(CheckOut[index])) {
+                        greater_one = Number(CheckInTime[index]);
+                        lower_one = Number(CheckOut[index]);
+                        totalHours.push(String(greater_one - lower_one));
+                        totalHours.push(":");
+                    } else {
+                        greater_one = Number(CheckOut[index]);
+                        lower_one = Number(CheckInTime[index]);
+                        totalHours.push(String(greater_one - lower_one));
+                        totalHours.push(":");
+                    }
+                    index++;
+                }
+
+                totalHours.pop();
+
+                let total = "";
+
+                totalHours.forEach(e => total += e);
+
+                user.ClockOut = ClockOut;
+                user.WorkingHours = total;
+                await user.save();
+                return res.status(200).json({ msg: "Clock in has created" });
+
             }
-            index++;
-        }
 
-        totalHours.pop();
+        });
 
-        let total = "";
 
-        totalHours.forEach(e => total += e);
 
-        user.ClockOut = ClockOut;
-        user.WorkingHours = total;
-
-        await user.save();
-
-        return res.status(200).json({ msg: "Clock in has created" });
 
     } catch (err) {
         console.log(err);
